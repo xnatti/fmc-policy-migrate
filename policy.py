@@ -29,5 +29,17 @@ def extractZones(policy):
         if 'destinationZones' in item:
             for zone in item['destinationZones']['objects']:
                 zoneset.add(zone['name'])
-    stuffs['zones'] = zoneset
+    return zoneset
+
+
+stuffs['zones'] = extractZones(policy)
+
+
+def extractPortObjects(policy)
+    objectset = set()
+    for item in policy['items']:
+        if 'destinationPorts' in item:
+            if 'objects' in item['destinationPorts']:
+                for obj in item['destinationPorts']['objects']:
+                    objectset.add(obj['name'...........................waitthisisnotIT!!!
 
