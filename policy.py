@@ -6,6 +6,7 @@ import json
 print('filename: ', end='')
 filename = input()
 
+stuffs = {}
 
 
 def readPolicy(filename):
@@ -17,3 +18,16 @@ def readPolicy(filename):
 
 
 policy = readPolicy(filename)
+
+
+def extractZones(policy):
+    zoneset = set()
+    for item in policy['items']:
+        if 'sourceZones' in item:
+            for zone in item['sourceZones']['objects']:
+                zoneset.add(zone['name'])
+        if 'destinationZones' in item:
+            for zone in item['destinationZones']['objects']:
+                zoneset.add(zone['name'])
+    stuffs['zones'] = zoneset
+
